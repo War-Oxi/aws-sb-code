@@ -67,7 +67,7 @@ pipeline {
       steps {
             sh "docker push ${DOCKERHUB}:${currentBuild.number}"
             sh "docker push ${DOCKERHUB}:latest"
-        }
+        
 
       }
       post {
