@@ -10,7 +10,7 @@ pipeline {
     GITEMAIL = 'pcmin929@gmail.com'
     GITWEBADD = 'https://github.com/pcmin929/sb_code.git'
     GITSSHADD = 'git@github.com:pcmin929/sb_code.git'
-    GITDEPADD = 'git@github.com:pcmin929/deployment.git'
+    GITDEPADD = 'git@github.com:pcmin929/sb_code.git'
     GITCREDENTIAL = 'git_cre'
     // github credential 생성시의 ID
     DOCKERHUB = '211.183.3.10:5000/myhttpd'
