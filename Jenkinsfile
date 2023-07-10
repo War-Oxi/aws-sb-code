@@ -62,8 +62,8 @@ pipeline {
           
             sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
             sh "docker push ${dockerHubRegistry}:latest"
-          }  
-      }
+      }  
+      
       post {
       // docker push가 성공하든 실패하든 로컬의 도커이미지는 삭제.
         failure {
