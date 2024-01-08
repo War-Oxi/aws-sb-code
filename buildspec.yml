@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    AWS_ECR: 176381617529.dkr.ecr.ap-northeast-2.amazonaws.com
+    AWS_ECR: 165749212250.dkr.ecr.ap-northeast-2.amazonaws.com
     IMAGE_REPO_NAME: spring-image
     CONTAINER_NAME: spring-container
   
