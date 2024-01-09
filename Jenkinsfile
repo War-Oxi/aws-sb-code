@@ -10,7 +10,7 @@ pipeline {
         GITWEBADD = 'https://github.com/War-Oxi/aws-sb-code.git'
         GITSSHADD = 'git@github.com:War-Oxi/aws-sb-code.git'
         GITCREDENTIAL = 'github_credential'           // 아까 젠킨스 credential에서 생성한
-        DOCKERCREDENTIAL = 'docker_credential'
+        DOCKERHUBCREDENTIAL = 'docker_credential'
         DOCKERHUB = 'kkankkandev/spring'
 
 
@@ -46,7 +46,7 @@ pipeline {
         }
         stage('image push') {
             steps {
-                withDockerRegistry(credentialsId DOCKERCREDENTIAL, url: '') {
+                withDockerRegistry(credentialsId DOCKERHUBCREDENTIAL, url: '') {
                     sh "docker push ${DOCKERHUB}:${currentBuild.number}"
                     sh "docker push ${DOCKERHUB}:latest"
                 }
