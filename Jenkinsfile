@@ -18,16 +18,16 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [],
                 userRemoteConfigs: [[credentialsId: GITCREDENTIAL, url: GITWEBADD]]])
             }
+            post {
+                failure {
+                    echo 'Repository clone failure'
+                }
+                success {
+                    echo 'Repository clone success'
+                }
+            }
         }
         
-        post {
-            failure {
-                echo 'Repository clone failure'
-            }
-            success {
-                echo 'Repository clone success'
-            }
-        }
         stage('Test') {
             steps {
                 echo 'Testing..'
