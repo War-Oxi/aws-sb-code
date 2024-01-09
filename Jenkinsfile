@@ -1,5 +1,3 @@
-Jenkinsfile 수정
-
 pipeline {
     agent any
     
@@ -19,7 +17,8 @@ pipeline {
 
     }
     
-        stages {
+    stages {
+    
         stage('Checkout Github') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [],
@@ -38,13 +37,13 @@ pipeline {
             }
         }
         
-        
         stage('code build') {
             steps {
                 sh "mvn clean package"
                 
             }
         }
+        
         stage('image build') {
             steps {
                 sh "docker build -t ${DOCKERHUB}:${currentBuild.number} ."
@@ -61,7 +60,7 @@ pipeline {
                     sh "docker push ${DOCKERHUB}:latest"
                 }
             }
-            
+        
             post {
                 failure {
                     echo 'docker image push failure'
