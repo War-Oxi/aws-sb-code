@@ -54,7 +54,7 @@ pipeline {
                 failure {
                     echo 'docker image push fail'
                     sh "docker image rm -f ${DOCKERHUB}:${currentBuild.number}"
-                    sh "docker image rm -f ${DOCKERHUB}:latest
+                    sh "docker image rm -f ${DOCKERHUB}:latest"
                 }
                 success {
                     echo 'docker image push success'
