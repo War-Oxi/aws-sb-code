@@ -76,7 +76,7 @@ pipeline {
                 branch: 'main'
         
                 // 이미지 태그 변경 후 메인 브랜치에 푸시
-                sh "git config --global user.email ${GITEMAIL}"
+                sh "git config --global user.email ${GITMAIL}"
                 sh "git config --global user.name ${GITNAME}"
                 sh "sed -i 's@${DOCKERHUB}:.*@${DOCKERHUB}:${currentBuild.number}@g' deployment.yml"
         
