@@ -28,9 +28,9 @@ pipeline {
             }
         }
         
-        stage('Test') {
+        stage('code build') {
             steps {
-                echo 'Testing..'
+                sh "mvn clean package"
             }
         }
         stage('Deploy') {
