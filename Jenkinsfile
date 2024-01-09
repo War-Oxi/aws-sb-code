@@ -10,7 +10,9 @@ pipeline {
         GITWEBADD = 'https://github.com/War-Oxi/aws-sb-code.git'
         GITSSHADD = 'git@github.com:War-Oxi/aws-sb-code.git'
         GITCREDENTIAL = 'github_credential'           // 아까 젠킨스 credential에서 생성한
-        DOCKERHUB = 'docker_credential'
+        DOCKERCREDENTIAL = 'docker_credential'
+        DOCKERHUB = 'kkankkandev/spring'
+
 
     }
     
