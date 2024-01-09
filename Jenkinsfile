@@ -5,7 +5,7 @@ pipeline {
         maven 'my_maven'
     }
     environment {
-        GITNAME = 'war-oxi'                 // 본인 깃허브계정  
+        GITNAME = 'war-oxi'                 // 본인 깃허브계정
         GITMAIL = 'xowl5460@naver.com'      // 본인 이메일
         GITWEBADD = 'https://github.com/War-Oxi/aws-sb-code.git'
         GITSSHADD = 'git@github.com:War-Oxi/aws-sb-code.git'
@@ -33,9 +33,9 @@ pipeline {
                 sh "mvn clean package"
             }
         }
-        stage('Deploy') {
+        stage('image build') {
             steps {
-                echo 'Deploying....'
+                sh "docker build -t kkankkandev/spring:1.0 ."
             }
         }
     }
