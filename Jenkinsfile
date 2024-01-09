@@ -39,7 +39,7 @@ pipeline {
         }
         stage('image build') {
             steps {
-                sh "docker build -t ${DOCKERHUB}/${currentBuild.number:1.0} ."
+                sh "docker build -t ${DOCKERHUB}:${currentBuild.number} ."
                 // currentBuild.numer = 젠킨스가 제공하는 빌드넘버 변수
                 // kkankkandev/spring:1 같은 형태로 빌드가 될 예정정
             }
