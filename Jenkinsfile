@@ -45,13 +45,16 @@ pipeline {
             }
         }
         stage('image push') {
-            script {
-                // Docker 로그인
-                sh "echo ${env.DOCKERCREDENTIAL} | docker login --username kkankkandev --password-stdin"
-            }   
             steps {
+                script {
+                    // Docker 로그인
+                    sh "echo ${env.DOCKERCREDENTIAL} | docker login --username kkankkandev --password-stdin"
+                }   
                 sh "docker push ${DOCKERHUB}:${currentBuild.number}"
                 sh "docker push ${DOCKERHUB}:latest"
+                script {
+                    sh "docker logout"
+                }
             }
             
             post {
