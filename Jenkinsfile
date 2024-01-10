@@ -18,7 +18,7 @@ pipeline {
         stages {
             stage('Checkout Github') {
                 steps {
-                    slackSend (channel: '#일반', color: '#FFFF00', message:
+                    slackSend (channel: '#test2', color: '#FFFF00', message:
                     "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [],
